@@ -1,14 +1,27 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import "./App.css";
+import styled from 'styled-components';
+
+import APODCreate from "./Components/APOD/APODcreate";
+import {Header, Footer} from "./Components/HeaderFooter"
+
+const OneDivToRuleThemAll = styled.div`
+  background-color: black
+`
 
 function App() {
+  const [datepicked, setDate] = useState()
+
+  useEffect(()=>{
+    setDate(datepicked)
+  },[datepicked])
+
   return (
-    <div className="App">
-      <p>
-        Read through the instructions in the README.md file to build your NASA
-        app! Have fun 🚀!
-      </p>
-    </div>
+    <OneDivToRuleThemAll>
+      <Header />
+      <APODCreate />
+      <Footer />
+    </OneDivToRuleThemAll>
   );
 }
 
